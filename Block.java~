@@ -1,0 +1,77 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
+import java.awt.Font;
+/**
+ * Write a description of class Block here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Block extends Actor
+{    
+    private String str;
+    private int state;
+    public Block()
+    {
+        String[] alpha = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
+                "P","Q","R","S","T","U","V","W","X","Y","Z"};
+        str = alpha[Greenfoot.getRandomNumber(alpha.length-1)];
+        changeState(0);
+    }
+
+    /**
+     * Act - do whatever the Block wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        setLocation(getX(), getY()+2);
+        if(getY() > getWorld().getHeight()-50 && getState()==0) changeState(2);
+        if(getY() > getWorld().getHeight()-5) getWorld().removeObject(this);
+    }    
+
+    public void checkKey(String string)
+    {
+        if(string.equalsIgnoreCase(getChar()))
+        {
+            System.out.println("hi");
+            if(getY() > getWorld().getHeight()-100 && 
+            getY() < getWorld().getHeight()-50)
+                if(getState()==0) 
+                    changeState(1);
+        } else
+            System.out.println(string + " " + getChar());
+    }
+
+    public int getState()
+    {
+        return state;
+    }
+
+    public String getChar()
+    {
+        return str;
+    }
+
+    public void changeState(int status)
+    {
+        GreenfootImage img = new GreenfootImage(50,50);
+        this.state = status;
+        img.setColor(Color.BLUE);
+        img.drawOval(0,0,50,50);
+        img.drawOval(1,1,46,48);
+        img.drawOval(2,2,46,46);
+        img.drawOval(3,3,45,45);
+        if(status == 0) 
+            img.setColor(Color.WHITE);
+        else if(status == 1)
+            img.setColor(Color.GREEN);
+        else if(status == 2)
+            img.setColor(Color.RED);
+        img.fillOval(3,3,44,44);
+        img.setColor(Color.RED);
+        img.setFont(new Font("Arial", Font.BOLD, 30));
+        img.drawString(str, 13, 35);
+        setImage(img);
+    }
+}

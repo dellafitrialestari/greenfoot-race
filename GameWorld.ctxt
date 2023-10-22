@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=GameWorld
+comment0.text=\r\n\ You\ create\ a\ program\ in\ which\ an\ arrow/key\ randomly/to\ the\ rhythm\ of\ \r\n\ something\ pops\ up\ and\ you\ must\ click\ that\ key\ in\ a\ certain\ amount\ of\ time.\ \r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=GameWorld()
+comment2.params=
+comment2.target=greenfoot.GreenfootSound\ getMyMusic()
+comment3.params=a
+comment3.target=void\ tetap(int)
+comment4.params=
+comment4.target=void\ act()
+numComments=5
